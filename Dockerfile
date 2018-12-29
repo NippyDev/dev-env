@@ -61,7 +61,5 @@ WORKDIR /home/builder/rpi
 RUN cp meta-rpi/conf/local.conf.sample build/conf/local.conf
 RUN cp meta-rpi/conf/bblayers.conf.sample build/conf/bblayers.conf
 WORKDIR /home/builder
-RUN /bin/bash -c "source poky-thud/oe-init-build-env ~/rpi/build"
-RUN /bin/bash -c "export LANG=en_US.UTF-8"
-RUN bitbake qt5-image
+RUN /bin/bash -c "source poky-thud/oe-init-build-env ~/rpi/build && export LANG=en_US.UTF-8 && bitbake qt5-image"
 
