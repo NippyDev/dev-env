@@ -29,7 +29,7 @@ RUN apt-get install -y \
     emacs \
     texinfo
 
-RUN apt-get install -y bzip2 locales
+RUN apt-get install -y bzip2 locales 
 
 # Update configuration
 RUN sudo ln -sf /usr/bin/python2.7 /usr/bin/python
@@ -61,5 +61,5 @@ WORKDIR /home/builder/rpi
 RUN cp meta-rpi/conf/local.conf.sample build/conf/local.conf
 RUN cp meta-rpi/conf/bblayers.conf.sample build/conf/bblayers.conf
 WORKDIR /home/builder
-RUN /bin/bash -c "source poky-thud/oe-init-build-env ~/rpi/build && export LANG=en_US.UTF-8 && bitbake qt5-image"
+RUN /bin/bash -c "source poky-thud/oe-init-build-env ~/rpi/build && export LANG=en_US.UTF-8 && echo 'BB_NUMBER_THREADS = \"2\"' >> ./conf/bblayers.conf && bitbake qt5-image"
 
