@@ -5,18 +5,18 @@ cd meta-boot2qt
 MACHINE=raspberrypi3 . ./setup-environment.sh
 
 
-#install git lfs on ubuntu 16.04
+# Install git lfs on ubuntu 16.04
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 sudo apt-get install git-lfs
 git lfs install
 
-#fix issue with local
+# fix issue with local
 sudo locale-gen en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-#build raspberry image in build-raspberrypi3 directory
+# build raspberry image in build-raspberrypi3 directory
 bitbake b2qt-embedded-qt5-image
 
-#build tool for qt
+# build tool for qt
 bitbake meta-toolchain-b2qt-embedded-qt5-sdk
