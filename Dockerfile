@@ -55,7 +55,8 @@ RUN mkdir rpi
 WORKDIR /home/builder/rpi
 RUN git clone http://code.qt.io/cgit/yocto/meta-boot2qt.git
 WORKDIR /home/builder/rpi/meta-boot2qt
-RUN ./b2qt-init-build-env init --device raspberrypi3
+
+#RUN ./b2qt-init-build-env init --device raspberrypi3
 #RUN /bin/bash -c 'MACHINE=raspberrypi3 . ./setup-environment.sh && export LANG=en_US.UTF-8 && bitbake b2qt-embedded-qt5-image'
 #WORKDIR /home/builder/rpi/meta-boot2qt/build-raspberrypi3
 
